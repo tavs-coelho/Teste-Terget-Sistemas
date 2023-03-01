@@ -1,0 +1,32 @@
+import json
+
+with open('dados.json') as f:
+    dados = json.load(f)
+
+# Calcula o menor e o maior valor de faturamento e a soma dos valores
+minimo = float('inf')
+maximo = float('-inf')
+soma = 0
+dias_com_valor_acima_da_media = 0
+dias_validos = 0
+for item in dados:
+    if item['valor'] > 0:
+        dias_validos += 1
+        if item['valor'] < minimo:
+            minimo = item['valor']
+        if item['valor'] > maximo:
+            maximo = item['valor']
+        soma += item['valor']
+
+# Calcula a média dos valores
+media = soma / dias_validos
+
+# Calcula o número de dias com valor acima da média
+for item in dados:
+    if item['valor'] > media:
+        dias_com_valor_acima_da_media += 1
+
+# Imprime os resultados
+print(f"Menor valor de faturamento: R${minimo:.2f}")
+print(f"Maior valor de faturamento: R${maximo:.2f}")
+print(f"Número de dias com valor acima da média: {dias_com_valor_acima_da_media}") 
