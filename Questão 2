@@ -1,0 +1,15 @@
+# Define o número a ser verificado na sequência de Fibonacci
+numero = 21
+
+# Inicializa os valores iniciais da sequência
+a, b = 0, 1
+
+# Loop para gerar a sequência até o número informado ou até ultrapassá-lo
+while b < numero:
+    a, b = b, a+b
+
+# Verifica se o número informado pertence à sequência e exibe a mensagem correspondente
+if b == numero:
+    print(f"O número {numero} pertence à sequência de Fibonacci!")
+else:
+    print(f"O número {numero} não pertence à sequência de Fibonacci!")
